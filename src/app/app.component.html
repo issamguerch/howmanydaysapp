@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{title}}
+  </h1>
+  <img width="300" src="assets/img.png">
+
+<h5>this app allow you to calculate how many days between two dates.</h5>
+<!--afiche le message d'erreur -->
+<div class="alert  alert-danger " *ngIf="message">
+  <strong>{{message}}</strong> 
+</div>
+
+<!-- selectionner les 2 dates d'après  une calendrien utilisant DpDatePickerModule (installé avec npm et déclaré dans le app.module.ts)-->
+<dp-date-picker placeholder="First Date" [(ngModel)]="date1" [config]="datePickerConfig" format="DD-MM-YYYY" disableKeypress="true"></dp-date-picker>
+<dp-date-picker placeholder="Seconde Date" [(ngModel)]="date2" [config]="datePickerConfig" format="DD-MM-YYYY" disableKeypress="true"></dp-date-picker>
+
+<!--cliquer pour calculer les jours entre 2 dates -->
+<button class="btn btn-success" (click)="onChange()">Get Result</button>
+
+<!-- afficher le resultat s'il n y a pas de message d'erreur -->
+<p class="myResylt" *ngIf="!message">{{result}}</p>
+
+</div>
